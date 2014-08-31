@@ -2,10 +2,15 @@
 
 class fileBO {
 	
-	public function __construct(){
-	}
-
-   public function __construct($nomeArquivo, $tipoArquivo, $tamanhoArquivo, $nome, $endereco, $telefone, $celular) {
+	private $nomeArquivo;
+	private	$tipoArquivo;
+	private	$tamanhoArquivo;
+	private	$nome;
+	private	$endereco;
+	private	$telefone;
+	private	$celular;
+	
+	 public function setAtributes($nomeArquivo, $tipoArquivo, $tamanhoArquivo, $nome, $endereco, $telefone, $celular) {
 		$this->nomeArquivo = $nomeArquivo;
 		$this->tipoArquivo = $tipoArquivo;
 		$this->tamanhoArquivo = $tamanhoArquivo;
@@ -14,33 +19,71 @@ class fileBO {
 		$this->telefone = $telefone;
 		$this->celular = $celular;
 	}
-
+	
 	public function getNomeArquivo() {
 		return $this->nomeArquivo;
+	}
+	
+	public function setNomeArquivo($nomeArquivo){
+		$this->nomeArquivo = $nomeArquivo;
 	}
 	
 	public function getTipoArquivo() {
 		return $this->tipoArquivo;
 	}
 	
+	public function setTipoArquivo($tipoArquivo){
+		$this->tipoArquivo = $tipoArquivo;
+	}
+	
 	public function getTamanhoArquivo() {
 		return $this->tamanhoArquivo;
 	}
+	 
+	public function setTamanhoArquivo($tamanhoArquivo){
+		$this->tamanhoArquivo = tamanhoArquivo;
+	}
 	
-	public function getName() {
+	public function getNome() {
 		return $this->nome;
 	}
 	
+	public function SetNome($nome) {
+		return $this->nome = $nome;
+	}
+		 
 	public function getEndereco() {
 		return $this->endereco;
+	}
+	
+	public function SetEndereco($endereco) {
+		return $this->endereco = $endereco;
 	}
 	
 	public function getTelefone() {
 		return $this->telefone;
 	}
 	
+	public function SetTelefone($telefone) {
+		return $this->telefone = $telefone;
+	}
+	
 	public function getCelular() {
 		return $this->celular;
 	}
+	
+	
+	public function SetCelular($celular) {
+		return $this->celular = $celular;
+	}
+	
+	public function moverArquivo($novaPasta){
+		return move_uploaded_file($nomeArquivo ,$novaPasta);		
+	}
+	
+	public function salvar(){
+		
+	}
+	
 }
 ?>
