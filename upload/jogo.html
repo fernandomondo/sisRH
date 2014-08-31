@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>bonequinha</title>
+		<style>
+			body { background: rgb(150, 231, 163) ; font-size: 50px; color: white; }			
+		</style>
+	</head>
+	<body>
+		<div id="game"></div>
+		<script src='crafty-min.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+			Crafty.init(800,600, document.getElementById('game'));
+			Crafty.background('#FFFFFF url("fundo do jogo.png") no-repeat center center'); //esta linha diz a cor de fundo do jogo
+			
+			//carrega imagens
+			Crafty.sprite(60, 109,'menininha.png',{ boneca: [0,0]});
+			
+			Crafty.sprite(20,20,'bolinha.png', {bolinha:[0,0]});
+			Crafty.sprite(50,50,'robo.png', {robo:[0,0]});
+
+			//criação de personagens
+			Crafty.e('2D, DOM, Fourway, boneca, Keyboard')
+				.attr({x: 0, y: 120, w: 60, h: 109}).fourway(10)
+				.bind('KeyDown', function () { 
+					if (this.isDown('SPACE')) 
+				
+					Crafty.e('2D,DOM,bolinha')
+						.attr({x: this.x + 30, y: this.y + 55, w: 20, h: 20})
+						.bind("EnterFrame", function(){
+									this.x += 10;
+
+									if (this.x > 800)
+										this.destroy();
+								});
+				});;
+
+			
+			Crafty.e('2D, DOM, robo').attr({x: 350, y: 255, w: 50, h: 50}) 
+ 
+			
+			
+			
+		</script>		
+	</body>
+</html>

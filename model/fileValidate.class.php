@@ -1,4 +1,5 @@
 <?php
+include_once("model/fileBO.class.php");
 
 class fileValidate {
 
@@ -9,24 +10,27 @@ class fileValidate {
     		$errors["nome"] = "nome invalido.";
     		
     		if($fileBO->getEndereco() == "")
-    		$errors["endereco"] = "endereço inválido.";
+    			$errors["endereco"] = "endereço inválido.";
     		
     		if($fileBO->getTelefone() == "")
-    		$errors["telefone"] = "telefone inválido.";
+    			$errors["telefone"] = "telefone inválido.";
     		
     		if($fileBO->getCelular() == "")
-    		$errors["celular"] = "celular invalido.";
+    			$errors["celular"] = "celular invalido.";
     		
     		if($fileBO->getNomeArquivo() == "")
-    		$errors["arquivo"] = "arquivo inválido.";
+    			$errors["arquivo"] = "arquivo inválido.";
     		
-    		$doisMega = (1024 * 1024 * 2);
-    		
-    		if ($fileBO->getTamanhoArquivo() <  $doisMega)
-    			$errors["arquivo"] = "arquivo muito grande.";
-
-
+    		$extension = pathinfo($fileBO->getNomeArquivo(),PATHINFO_EXTENSION);
     	
+    		if(!($extension == 'pdf' || $extension == 'doc' || $extension == 'zip'))
+    			$errors["arquivo"] = "arquivo com extensão inválida.";
+    		
+			$doisMega = (1024 * 1024 * 2);
+    		
+    		if ($fileBO->getTamanhoArquivo() >  $doisMega)
+    			$errors["arquivo"] = "arquivo muito grande.";
+  	
     	return $errors;
     }
 }

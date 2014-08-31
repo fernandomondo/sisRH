@@ -9,8 +9,9 @@ class fileBO {
 	private	$endereco;
 	private	$telefone;
 	private	$celular;
+	private	$localArquivo;
 	
-	 public function setAtributes($nomeArquivo, $tipoArquivo, $tamanhoArquivo, $nome, $endereco, $telefone, $celular) {
+	public function setAtributes($nomeArquivo, $localArquivo, $tipoArquivo, $tamanhoArquivo, $nome, $endereco, $telefone, $celular) {
 		$this->nomeArquivo = $nomeArquivo;
 		$this->tipoArquivo = $tipoArquivo;
 		$this->tamanhoArquivo = $tamanhoArquivo;
@@ -18,6 +19,7 @@ class fileBO {
 		$this->endereco = $endereco;
 		$this->telefone = $telefone;
 		$this->celular = $celular;
+		$this->localArquivo = $localArquivo;
 	}
 	
 	public function getNomeArquivo() {
@@ -77,8 +79,8 @@ class fileBO {
 		return $this->celular = $celular;
 	}
 	
-	public function moverArquivo($novaPasta){
-		return move_uploaded_file($nomeArquivo ,$novaPasta);		
+	public function moverArquivo($novaPasta){		
+		return move_uploaded_file($this->localArquivo ,$novaPasta . $this->nomeArquivo );//."/". $this->nome . "-curriculo.txt");		
 	}
 	
 	public function salvar(){
