@@ -13,7 +13,7 @@ $view = $fileController->execute();
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Language" content="en" />
 	<meta name="GENERATOR" content="PHPEclipse 1.2.0" />
-	<title>title</title>
+	<title>title is here</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
